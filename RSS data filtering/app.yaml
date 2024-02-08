@@ -1,0 +1,21 @@
+name: RSS data filtering
+language: python
+variables:
+  - name: input
+    inputType: InputTopic
+    description: This is the input topic for raw data
+    defaultValue: rss-data
+    required: true
+  - name: output
+    inputType: OutputTopic
+    description: This is the output topic for filtered and updated data
+    defaultValue: filtered-rss
+    required: true
+  - name: tag_filter
+    inputType: FreeText
+    description: The comma separated list of tags to filter on
+    defaultValue: blockchain,web3,django,pandas,merge,flask,json,tree,matplotlib
+    required: true
+dockerfile: dockerfile
+runEntryPoint: main.py
+defaultFile: quix_function.py
