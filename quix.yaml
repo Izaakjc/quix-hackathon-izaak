@@ -26,6 +26,31 @@ deployments:
         description: The URL of the RSS feed to consume
         required: true
         value: https://stackoverflow.com/feeds/tag/python
+  - name: RSS data filtering
+    application: RSS data filtering
+    deploymentType: Service
+    version: acd9c316e73bbd40b28bc8c9c980bd27eb09f151
+    resources:
+      cpu: 200
+      memory: 200
+      replicas: 1
+    desiredStatus: Running
+    variables:
+      - name: input
+        inputType: InputTopic
+        description: This is the input topic for raw data
+        required: true
+        value: rss-data
+      - name: output
+        inputType: OutputTopic
+        description: This is the output topic for filtered and updated data
+        required: true
+        value: filtered-rss
+      - name: tag_filter
+        inputType: FreeText
+        description: The comma separated list of tags to filter on
+        required: true
+        value: blockchain,web3,django,pandas,merge,flask,json,tree,matplotlib
 
 # This section describes the Topics of the data pipeline
 topics:
