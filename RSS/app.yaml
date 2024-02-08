@@ -1,0 +1,16 @@
+name: RSS
+language: python
+variables:
+  - name: output
+    inputType: OutputTopic
+    description: This is the output topic for the data
+    defaultValue: rss-data
+    required: true
+  - name: rss_url
+    inputType: FreeText
+    description: The URL of the RSS feed to consume
+    defaultValue: https://stackoverflow.com/feeds/tag/python
+    required: true
+dockerfile: dockerfile
+runEntryPoint: main.py
+defaultFile: main.py
