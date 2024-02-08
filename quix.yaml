@@ -5,7 +5,27 @@ metadata:
   version: 1.0
 
 # This section describes the Deployments of the data pipeline
-deployments: []
+deployments:
+  - name: RSS
+    application: RSS
+    deploymentType: Service
+    version: 71bdd3a93d9c788d576ec8d36f42f112af727f37
+    resources:
+      cpu: 200
+      memory: 200
+      replicas: 1
+    desiredStatus: Running
+    variables:
+      - name: output
+        inputType: OutputTopic
+        description: This is the output topic for the data
+        required: true
+        value: rss-data
+      - name: rss_url
+        inputType: FreeText
+        description: The URL of the RSS feed to consume
+        required: true
+        value: https://stackoverflow.com/feeds/tag/python
 
 # This section describes the Topics of the data pipeline
 topics:
